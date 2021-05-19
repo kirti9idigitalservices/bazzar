@@ -1,34 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import bluetooth from '../navigation/bluetooth';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-    <Image
-          style={{ width: 300, height: 200, marginTop:200}}
-          source={require("./public/Splash_Logo.png")}
-        />
-      <Text style={blue.box}>Bluetooth</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-  }
+const RootStack = createStackNavigator();
+const App = ({ navigation }) => (
 
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#0a3d91',
-    alignItems: 'center',
-    justifyContent: 'center',},
-  
-});
+  <RootStack.Navigator>
 
-const blue = StyleSheet.create({
-    box:{
-    
-      color: 'white',
-      paddingTop: 200,
-      fontSize:17,
-     },
-  });
+    <RootStack.Screen name="bluetooth" component={bluetooth}
+      // Hiding header for Options Screen
+      options={{
+        headerShown: false,
+      }}
+    />
+
+  </RootStack.Navigator>
+);
+
+export default App;
