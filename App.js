@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>hello, welcome to my first project
-         here i can start my first project of my app.
-      </Text>
+    <Image
+          style={{ width: 300, height: 200, marginTop:200}}
+          source={require("./public/Splash_Logo.png")}
+        />
+      <Text style={blue.box}>Bluetooth</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -15,9 +17,18 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
+    flex:1,
+    backgroundColor: '#0a3d91',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center',},
+  
 });
+
+const blue = StyleSheet.create({
+    box:{
+    
+      color: 'white',
+      paddingTop: 200,
+      fontSize:17,
+     },
+  });
