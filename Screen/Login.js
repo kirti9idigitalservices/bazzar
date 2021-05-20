@@ -20,6 +20,7 @@ export default function Login() {
  
       <StatusBar style="auto" />
       <View style={styles.inputView}>
+      <Image style={styles.lock} source={require("./public/user.png")} />
         <TextInput
           style={styles.TextInput}
           placeholder="Username"
@@ -30,23 +31,32 @@ export default function Login() {
  
       <View style={styles.inputView}>
     
-        <Image style={styles.lock} source={require("./public/lock-2(4).png")} />
+        <Image style={styles.lock} source={require("./public/padlock.png")} />
+        
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Password"
           placeholderTextColor="black"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
+        <Image style={styles.lock} source={require("./public/private.png")} />
       </View>
  
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
+      <Text style={styles.rem}>Remember Password</Text>
  
       <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
+        <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
+
+       <Text style={styles.rem}>login with</Text>
+
+       <View style={styles.siteinput}>
+       <Image style={styles.site} source={require("./public/Instagram.png")} />
+       <Image style={styles.site} source={require("./public/Google.png")} />
+        <Image style={styles.site} source={require("./public/Facebook.png")} />
+     </View>
+
     </View>
   );
 }
@@ -57,6 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 10,
   },
  
   image: {
@@ -66,30 +77,54 @@ const styles = StyleSheet.create({
   },
 
   lock:{
-    height:10,
-    width:10,
-    justifyContent: "left",
-    alignItems: "left",
+    height:20,
+    width:20,
+    marginTop:13,
+    marginLeft:15,
+  
+  
   },
+
+  site: {
+    height:25,
+    width:25,
+    marginTop:13,
+    marginLeft:15,
+    flexDirection: 'row'
+
+  },
+
+  siteinput: {
+  
+    borderRadius: 30,
+    width: "80%",
+    height: 45,
+    marginBottom: 70,
+    marginLeft: 120,
+    flexDirection: 'row',
+
+
+  },
+  
  
   inputView: {
     backgroundColor: "#ccc",
     borderRadius: 30,
-    width: "70%",
+    width: "80%",
     height: 45,
     marginBottom: 20,
- 
-    alignItems: "center",
+    flexDirection: 'row',
+    justifiyContent: 'space-between',
+
+  
   },
  
   TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
+    height: 45,
+    marginLeft: 5,
   },
- 
-  forgot_button: {
+
+forgot_button: {
     height: 20,
     marginBottom: 30,
     backgroundColor: "#ccc",
@@ -101,7 +136,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "white",
+    marginTop: 20,
+    backgroundColor: "green",
   },
 });
